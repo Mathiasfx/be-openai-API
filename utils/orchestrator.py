@@ -17,6 +17,6 @@ def get_image(history):
     config_openAI.set_api_credentials(self='')
     prompt = open("utils/prompt_instructions.prompt", "r").read()
 
-    completion = config_openAI.generate_image(self='', prompt=f'{prompt} \n {history}')
+    completion = config_openAI.generate_image(self='', prompt=f'{prompt} \nDescription: {history}')
     response = completion["data"][0]["url"]
     return {"data_points": "", "image": response, "thoughts": ""}

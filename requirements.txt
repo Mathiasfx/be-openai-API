@@ -1,5 +1,6 @@
 Flask==3.0.2
 Flask-Cors==4.0.0
 openai==0.28.0
+PyJWT==2.8.0
 openapi-schema-pydantic==1.2.4
 openpyxl==3.1.2
