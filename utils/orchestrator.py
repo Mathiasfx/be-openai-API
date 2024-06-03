@@ -1,8 +1,7 @@
 from utils.openai import config_openAI
 
 def get_answer(history):
-    config_openAI.set_api_credentials(self='')
-    _prompt = open("utils/prompt_instructions.prompt", "r").read()
+    _prompt = open("utils/prompt_instructions_chat.prompt", "r").read()
     
     prompt = [{"role": "system", "content": _prompt}]
     history_item = [{"role": "user", "content": history}]
@@ -14,9 +13,8 @@ def get_answer(history):
     return {"data_points": "", "answer": response, "thoughts": ""}
 
 def get_image(history):
-    config_openAI.set_api_credentials(self='')
-    prompt = open("utils/prompt_instructions.prompt", "r").read()
+    prompt = open("utils/prompt_instructions_image.prompt", "r").read()
 
-    completion = config_openAI.generate_image(self='', prompt=f'{prompt} \nDescription: {history}')
+    completion = config_openAI.generate_image(self='', prompt=f'{prompt} {history}')
     response = completion["data"][0]["url"]
     return {"data_points": "", "image": response, "thoughts": ""}
